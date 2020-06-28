@@ -7,12 +7,19 @@
 //
 
 import UIKit
+import AVFoundation
+
 
 class ViewController: UIViewController {
 
+    let player = AVPlayer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        let fileUrl = Bundle.main.url(forResource: "Video", withExtension: "mp4")!
+        let playerItem = AVPlayerItem(url: fileUrl)
+        player.replaceCurrentItem(with: playerItem)
+        player.play()        
     }
 
 
