@@ -32,27 +32,44 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ScriptTable" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1zX-0i-ts0">
-                                <rect key="frame" x="0.0" y="484" width="414" height="378"/>
+                                <rect key="frame" x="0.0" y="463" width="414" height="399"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Z6T-vN-xrd" id="aXf-zg-yAd"/>
+                                    <outlet property="delegate" destination="Z6T-vN-xrd" id="B1S-Pf-SdC"/>
+                                </connections>
                             </tableView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ius-qB-54I">
-                                <rect key="frame" x="0.0" y="412" width="414" height="72"/>
-                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mCa-9U-CPN">
+                                <rect key="frame" x="0.0" y="88" width="414" height="337"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PBl-d3-fup">
+                                <rect key="frame" x="0.0" y="433" width="414" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="ius-qB-54I" firstAttribute="top" secondItem="AoZ-oa-Udf" secondAttribute="top" constant="324" id="8Ie-Ox-dxX"/>
-                            <constraint firstItem="ius-qB-54I" firstAttribute="leading" secondItem="AoZ-oa-Udf" secondAttribute="leading" id="VbR-YK-sLi"/>
-                            <constraint firstItem="1zX-0i-ts0" firstAttribute="trailing" secondItem="AoZ-oa-Udf" secondAttribute="trailing" id="Xml-Ld-hgN"/>
-                            <constraint firstItem="1zX-0i-ts0" firstAttribute="top" secondItem="ius-qB-54I" secondAttribute="bottom" id="aN1-gX-j50"/>
-                            <constraint firstItem="1zX-0i-ts0" firstAttribute="bottom" secondItem="AoZ-oa-Udf" secondAttribute="bottom" id="alw-hP-MBn"/>
-                            <constraint firstItem="ius-qB-54I" firstAttribute="centerY" secondItem="Phg-i3-iTn" secondAttribute="centerY" id="cjB-2K-Bnp"/>
-                            <constraint firstItem="ius-qB-54I" firstAttribute="trailing" secondItem="AoZ-oa-Udf" secondAttribute="trailing" id="lOT-dI-pr0"/>
-                            <constraint firstItem="1zX-0i-ts0" firstAttribute="leading" secondItem="AoZ-oa-Udf" secondAttribute="leading" id="xf8-Wq-nYd"/>
+                            <constraint firstItem="mCa-9U-CPN" firstAttribute="top" secondItem="AoZ-oa-Udf" secondAttribute="top" id="2eD-u0-5mp"/>
+                            <constraint firstItem="1zX-0i-ts0" firstAttribute="trailing" secondItem="AoZ-oa-Udf" secondAttribute="trailing" id="B1E-zC-e2M"/>
+                            <constraint firstItem="1zX-0i-ts0" firstAttribute="bottom" secondItem="AoZ-oa-Udf" secondAttribute="bottom" id="GCv-jU-yPJ"/>
+                            <constraint firstItem="mCa-9U-CPN" firstAttribute="trailing" secondItem="AoZ-oa-Udf" secondAttribute="trailing" id="J2o-Kv-Pod"/>
+                            <constraint firstItem="PBl-d3-fup" firstAttribute="top" secondItem="mCa-9U-CPN" secondAttribute="bottom" constant="8" id="VNo-Pv-s1e"/>
+                            <constraint firstItem="mCa-9U-CPN" firstAttribute="leading" secondItem="AoZ-oa-Udf" secondAttribute="leading" id="Ya1-vb-wPE"/>
+                            <constraint firstItem="PBl-d3-fup" firstAttribute="centerY" secondItem="Phg-i3-iTn" secondAttribute="centerY" id="e0V-u5-hcz"/>
+                            <constraint firstItem="PBl-d3-fup" firstAttribute="trailing" secondItem="AoZ-oa-Udf" secondAttribute="trailing" id="gRF-ra-Akw"/>
+                            <constraint firstItem="PBl-d3-fup" firstAttribute="leading" secondItem="AoZ-oa-Udf" secondAttribute="leading" id="iXo-gd-yrd"/>
+                            <constraint firstItem="1zX-0i-ts0" firstAttribute="leading" secondItem="AoZ-oa-Udf" secondAttribute="leading" id="w45-FE-jON"/>
+                            <constraint firstItem="1zX-0i-ts0" firstAttribute="top" secondItem="PBl-d3-fup" secondAttribute="bottom" id="zqs-3k-4tq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AoZ-oa-Udf"/>
                     </view>
                     <navigationItem key="navigationItem" id="Ddt-VR-251"/>
+                    <connections>
+                        <outlet property="PlayPauseBtn" destination="PBl-d3-fup" id="yf7-sf-Pxe"/>
+                        <outlet property="ScriptTable" destination="1zX-0i-ts0" id="kVf-26-DLO"/>
+                        <outlet property="VideoView" destination="mCa-9U-CPN" id="ESW-rm-DFh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="52a-rz-d3r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
