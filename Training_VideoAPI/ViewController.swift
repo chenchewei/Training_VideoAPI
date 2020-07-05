@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVKit
 import AVFoundation
 
 
@@ -15,52 +16,56 @@ class ViewController: UIViewController {
     @IBOutlet var PlayPauseBtn: UIButton!
     @IBOutlet var ScriptTable: UITableView!
     
-    
-    let fileUrl = Bundle.main.url(forResource: "Video", withExtension: "mp4")!
-    var player : AVPlayer!
+    var avPlayer : AVPlayer!
     var playState : Bool!
     var playerItem : AVPlayerItem! = nil
-//    var player : AVPlayer?
-//
-//    private lazy var layer : AVPlayerLayer = {
-//        let fileUrl = Bundle.main.url(forResource: "Video", withExtension: "mp4")!
-//        self.player = AVPlayer(url: fileUrl)
-//        let layer = AVPlayerLayer(player: self.player)
-//        return layer
-//    }()
-    
+    let avPlayerController = AVPlayerViewController()
+    var VideoIsPlaying = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        playVideo()
-        print("123")
-//        view.layer.addSublayer(self.layer)
-//        player.replaceCurrentItem(with: playerItem)
-//        player?.play()
+        ScriptTable.register(UITableViewCell.self, forCellReuseIdentifier: "reuseCell")
+        VideoSetup()
+
     }
-//    func playVideo() {
-//        var playerItem = AVPlayerItem(url: fileUrl)
-//        var player = AVPlayer(playerItem: playerItem)
-//        let playerLayer = AVPlayerLayer(player: player)
-////        playerLayer.frame =
-//        view.layer.addSublayer(playerLayer)
-//        player.play()
-//    }
-    func AVPlayerSetting() {
-    if player == nil {
-        playerItem = AVPlayerItem(url: fileUrl)
-        player = AVPlayer(playerItem: playerItem)
-        let playerLayer:AVPlayerLayer = AVPlayerLayer(player: player)
-        playerLayer.frame = VideoView.frame
-        playerLayer.videoGravity = AVLayerVideoGravity.resizeAspect
-        VideoView.layer.addSublayer(playerLayer)
-        playerLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
-//        NotificationCenter.defaultCenter().addObserver(self,
-//        selector: #selector(playerEnd),
-//        name: AVPlayerItemDidPlayToEndTimeNotification,
-//        object: playerItem)
-//        addSomeObserver()
-        playState = true
+    
+    func VideoSetup() {
+        let filePath = Bundle.main.path(forResource: "Video", ofType: "mp4")
+        let fileURL = URL.init(fileURLWithPath: filePath!)
+        
+        avPlayer = AVPlayer(url: fileURL)
+        
+        avPlayerController.player = avPlayer
+        avPlayerController.view.frame = CGRect(x: 0, y: 0, width: VideoView.frame.width, height: VideoView.frame.height)
+        avPlayerController.showsPlaybackControls = false
+        
+        VideoView.addSubview(avPlayerController.view)
+    }
+// Bugged
+    @IBAction func BtnClicked(_ sender: Any) {
+        if(VideoIsPlaying == false) {
+            PlayPauseBtn.setImage(UIImage(named: "pause.png"), for: UIControl.State.normal)
+            avPlayerController.player?.play()
+            VideoIsPlaying = true
         }
+        else {
+            PlayPauseBtn.setImage(UIImage(named: "play.png"), for: UIControl.State.normal)
+            avPlayerController.player?.pause()
+            VideoIsPlaying = false
+        }
+        
     }
+    
+}
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = ScriptTable.dequeueReusableCell(withIdentifier: "reuseCell", for: indexPath)
+        return cell
+    }
+    
+    
 }
