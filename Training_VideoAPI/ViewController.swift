@@ -47,8 +47,7 @@ class ViewController: UIViewController {
     var VideoIsPlaying = false
     let VideoURL = "https://api.italkutalk.com/api/video/detail"
     var ScriptData : VideoScript?
-
-    
+    /* Parameters for timer counting */
     var timer : Timer? = nil
     var counter = 1
     
@@ -57,12 +56,9 @@ class ViewController: UIViewController {
         getDataFromAPI()
         TableViewCellInit()
         VideoSetup()
-        
-        
-        
+        /* Timer closure for scrolling tableview cells */
         timer = Timer.scheduledTimer(withTimeInterval: 0.8, repeats: true, block: { [weak self] (_) in
             guard let self = self else { return }
-            
             if(self.VideoIsPlaying == true) {
                 if(self.counter == 1) {
                     self.ScriptTable.selectRow(at: IndexPath(row: 0, section: 0), animated: true, scrollPosition: .top)
@@ -70,13 +66,11 @@ class ViewController: UIViewController {
                 let VideoCurrentTime = Float(CMTimeGetSeconds(self.avPlayer.currentTime()))
                 print(VideoCurrentTime)
                 let NextLineTime = Float(self.ScriptData?.result.videoInfo.captionResult.results[0].captions[self.counter].time ?? 0)
-                
                 if(NextLineTime - VideoCurrentTime < 0.9) {
                     self.ScriptTable.selectRow(at: IndexPath(row: self.counter, section: 0), animated: true, scrollPosition: .top)
                     if(self.counter < (self.ScriptData?.result.videoInfo.captionResult.results[0].captions.count)!-1) {
                             self.counter+=1
                         }
-                    
                 }
             }
             if (Float(CMTimeGetSeconds(self.avPlayer.currentTime())) >= 39) {
@@ -94,9 +88,6 @@ class ViewController: UIViewController {
         timer?.invalidate()
         timer = nil
     }
-    
-    
-    
     /* Setting up video player environments */
     func VideoSetup() {
         let filePath = Bundle.main.path(forResource: "Video", ofType: "mp4")
@@ -147,9 +138,7 @@ class ViewController: UIViewController {
             avPlayerController.player?.pause()
             VideoIsPlaying = false
         }
-        
     }
-    
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
@@ -168,7 +157,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         let timemark = CMTime(value: CMTimeValue(ScriptData?.result.videoInfo.captionResult.results[0].captions[indexPath.row].time ?? 0) , timescale: 1)
         avPlayer.seek(to: timemark)
         ScriptTable.selectRow(at: IndexPath(row: indexPath.row, section: 0), animated: true, scrollPosition: .top)
-//        ScriptTable.deselectRow(at: indexPath, animated: true)
+        counter = indexPath.row+1
     }
-    
 }
