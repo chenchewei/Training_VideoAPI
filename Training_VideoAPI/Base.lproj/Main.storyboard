@@ -43,14 +43,14 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mCa-9U-CPN">
-                                <rect key="frame" x="0.0" y="88" width="414" height="319"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="248"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PBl-d3-fup">
-                                <rect key="frame" x="150" y="427" width="114" height="22"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PBl-d3-fup">
+                                <rect key="frame" x="171" y="387" width="73" height="64"/>
                                 <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <state key="normal" image="play" catalog="system">
+                                <state key="normal" image="play">
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -60,15 +60,16 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="AoZ-oa-Udf" firstAttribute="trailing" secondItem="PBl-d3-fup" secondAttribute="trailing" constant="150" id="4Eb-J3-lhd"/>
-                            <constraint firstItem="PBl-d3-fup" firstAttribute="top" secondItem="mCa-9U-CPN" secondAttribute="bottom" constant="20" id="55X-Na-Z6r"/>
+                            <constraint firstItem="PBl-d3-fup" firstAttribute="leading" secondItem="AoZ-oa-Udf" secondAttribute="leading" constant="171" id="Iax-pQ-lq9"/>
                             <constraint firstItem="mCa-9U-CPN" firstAttribute="top" secondItem="AoZ-oa-Udf" secondAttribute="top" id="KQf-CR-a4Q"/>
-                            <constraint firstItem="PBl-d3-fup" firstAttribute="leading" secondItem="AoZ-oa-Udf" secondAttribute="leading" constant="150" id="VYm-TD-WEO"/>
+                            <constraint firstItem="AoZ-oa-Udf" firstAttribute="trailing" secondItem="PBl-d3-fup" secondAttribute="trailing" constant="170" id="Pdz-f7-T8w"/>
                             <constraint firstItem="mCa-9U-CPN" firstAttribute="trailing" secondItem="AoZ-oa-Udf" secondAttribute="trailing" id="XgJ-Vk-8uQ"/>
                             <constraint firstItem="1zX-0i-ts0" firstAttribute="leading" secondItem="AoZ-oa-Udf" secondAttribute="leading" id="coG-RU-yJM"/>
+                            <constraint firstItem="PBl-d3-fup" firstAttribute="top" secondItem="mCa-9U-CPN" secondAttribute="bottom" constant="51" id="kcS-Tc-4bW"/>
                             <constraint firstItem="1zX-0i-ts0" firstAttribute="trailing" secondItem="AoZ-oa-Udf" secondAttribute="trailing" id="l49-ml-Lkj"/>
                             <constraint firstItem="1zX-0i-ts0" firstAttribute="bottom" secondItem="AoZ-oa-Udf" secondAttribute="bottom" id="p6F-QF-7cE"/>
-                            <constraint firstItem="1zX-0i-ts0" firstAttribute="top" secondItem="PBl-d3-fup" secondAttribute="bottom" constant="10" id="sFe-eZ-JHf"/>
+                            <constraint firstItem="1zX-0i-ts0" firstAttribute="top" secondItem="PBl-d3-fup" secondAttribute="bottom" constant="8" id="ueY-xy-9gi"/>
+                            <constraint firstItem="PBl-d3-fup" firstAttribute="top" secondItem="AoZ-oa-Udf" secondAttribute="top" constant="299" id="vLj-yu-8Nl"/>
                             <constraint firstItem="mCa-9U-CPN" firstAttribute="leading" secondItem="AoZ-oa-Udf" secondAttribute="leading" id="vWe-6F-rll"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AoZ-oa-Udf"/>
@@ -86,6 +87,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="play" catalog="system" width="60" height="64"/>
+        <image name="play" width="256" height="256"/>
     </resources>
 </document>
