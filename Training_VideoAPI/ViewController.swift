@@ -64,7 +64,7 @@ class ViewController: UIViewController {
                     self.ScriptTable.selectRow(at: IndexPath(row: 0, section: 0), animated: true, scrollPosition: .top)
                 }
                 let VideoCurrentTime = Float(CMTimeGetSeconds(self.avPlayer.currentTime()))
-                print(VideoCurrentTime)
+//                print(VideoCurrentTime)
                 let NextLineTime = Float(self.ScriptData?.result.videoInfo.captionResult.results[0].captions[self.counter].time ?? 0)
                 if(NextLineTime - VideoCurrentTime < 0.9) {
                     self.ScriptTable.selectRow(at: IndexPath(row: self.counter, section: 0), animated: true, scrollPosition: .top)
@@ -157,6 +157,12 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         let timemark = CMTime(value: CMTimeValue(ScriptData?.result.videoInfo.captionResult.results[0].captions[indexPath.row].time ?? 0) , timescale: 1)
         avPlayer.seek(to: timemark)
         ScriptTable.selectRow(at: IndexPath(row: indexPath.row, section: 0), animated: true, scrollPosition: .top)
-        counter = indexPath.row+1
+        if(indexPath.row == 10) {
+            counter = 10
+        }
+        else {
+            counter = indexPath.row+1
+        }
+       
     }
 }
