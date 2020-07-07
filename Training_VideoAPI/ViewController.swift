@@ -65,7 +65,7 @@ class ViewController: UIViewController {
                 }
                 let VideoCurrentTime = Float(CMTimeGetSeconds(self.avPlayer.currentTime()))
 //                print(VideoCurrentTime)
-                let NextLineTime = Float(self.ScriptData?.result.videoInfo.captionResult.results[0].captions[self.counter].time ?? 0)
+                let NextLineTime = Float(self.ScriptData?.result.videoInfo.captionResult.results.first?.captions[self.counter].time ?? 0)
                 if(NextLineTime - VideoCurrentTime < 0.9) {
                     self.ScriptTable.selectRow(at: IndexPath(row: self.counter, section: 0), animated: true, scrollPosition: .top)
                     if(self.counter < (self.ScriptData?.result.videoInfo.captionResult.results[0].captions.count)!-1) {
@@ -102,8 +102,6 @@ class ViewController: UIViewController {
     func TableViewCellInit() {
         let cellNib = UINib(nibName: "ScriptTableTableViewCell", bundle: nil)
         ScriptTable.register(cellNib, forCellReuseIdentifier: "ScriptTableTableViewCell")
-        ScriptTable.rowHeight = 65
-        ScriptTable.estimatedRowHeight = 0
     }
     /* Decode API datas and reload tableview */
     func getDataFromAPI() {
@@ -128,6 +126,9 @@ class ViewController: UIViewController {
     }
     /* Button image clicked and reactions */
     @IBAction func BtnClicked(_ sender: Any) {
+        // Fuse for misclick before data loaded
+        if (ScriptData == nil){ return }
+        
         if(VideoIsPlaying == false) {
             PlayPauseBtn.setImage(UIImage(named: "pause.png"), for: UIControl.State.normal)
             avPlayerController.player?.play()
@@ -142,27 +143,28 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {        return ScriptData?.result.videoInfo.captionResult.results[0].captions.count ?? 0
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // Apply "first?" in case the data is empty
+        return ScriptData?.result.videoInfo.captionResult.results.first?.captions.count ?? 0
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = ScriptTable.dequeueReusableCell(withIdentifier: "ScriptTableTableViewCell", for: indexPath) as! ScriptTableTableViewCell
-        let script = ScriptData?.result.videoInfo.captionResult.results[0].captions[indexPath.row].content ?? ""
-        let times = ScriptData?.result.videoInfo.captionResult.results[0].captions[indexPath.row].time ?? 0
-        cell.setCell(Scripts: script, No: indexPath.row+1, Time: times)
-        
+        // Use guard in case the data is missing
+        guard let caption = ScriptData?.result.videoInfo.captionResult.results.first?.captions[indexPath.row] else { return cell }
+        cell.setCell(data: caption,No: indexPath.row+1)
         return cell
     }
-    /* If selected, video jump to that time and scroll script to the top */
+    /* If selected, video jump to that time and scroll the script to the top */
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let timemark = CMTime(value: CMTimeValue(ScriptData?.result.videoInfo.captionResult.results[0].captions[indexPath.row].time ?? 0) , timescale: 1)
         avPlayer.seek(to: timemark)
-        ScriptTable.selectRow(at: IndexPath(row: indexPath.row, section: 0), animated: true, scrollPosition: .top)
-        if(indexPath.row == 10) {
-            counter = 10
+        ScriptTable.scrollToRow(at: IndexPath(row: indexPath.row, section: 0), at: .top, animated: true)
+        // Checking counter index in case of index out of range
+        if(indexPath.row+1 == ScriptData?.result.videoInfo.captionResult.results.first?.captions.count) {
+            counter = indexPath.row 
         }
         else {
             counter = indexPath.row+1
         }
-       
     }
 }

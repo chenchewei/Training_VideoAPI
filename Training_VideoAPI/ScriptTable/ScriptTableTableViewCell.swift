@@ -25,6 +25,11 @@ class ScriptTableTableViewCell: UITableViewCell {
     func setCell(Scripts: String,No: Int,Time: CLong) {
         ScriptLabel.text = "  "+Scripts
         NoLabel.text = String(No)
-        
     }
+    
+    func setCell(data: captions,No: Int) {
+        ScriptLabel.text = data.content
+        NoLabel.text = "\(No)"
+    }
+    
 }

@@ -9,35 +9,35 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" restorationIdentifier="ScriptTableTableViewCell" selectionStyle="default" indentationWidth="10" rowHeight="80" id="KGk-i7-Jjw" customClass="ScriptTableTableViewCell" customModule="Training_VideoAPI" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="389" height="44"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="ScriptTableTableViewCell" selectionStyle="default" indentationWidth="10" rowHeight="260" id="KGk-i7-Jjw" customClass="ScriptTableTableViewCell" customModule="Training_VideoAPI" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="477" height="224"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="389" height="44"/>
+                <rect key="frame" x="0.0" y="0.0" width="477" height="224"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scripts" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C6H-Av-ohN">
-                        <rect key="frame" x="0.0" y="0.0" width="346" height="44"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C6H-Av-ohN">
+                        <rect key="frame" x="20" y="10" width="368.5" height="204"/>
+                        <string key="text">ScriptsS\ScriptsS\ScriptsS\ScriptsS\ScriptsS\ScriptsS\ScriptsS\ScriptsS\ScriptsS\ScriptsS\ScriptsS\ScriptsS\ScriptsS\ScriptsS\ScriptsS\ScriptsS\ScriptsS\ScriptsS\ScriptsS\ScriptsS\ScriptsS\ScriptsS\ScriptsS\ScriptsS\ScriptsS\ScriptsS\ScriptsS\ScriptsS\ScriptsS\ScriptsS\ScriptsS\ScriptsS\ScriptsS\ScriptsS\ScriptsS\ScriptsS\ScriptsS\ScriptsS\ScriptsS\ScriptsS\</string>
                         <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgv-RZ-XsK">
-                        <rect key="frame" x="354" y="0.0" width="35" height="44"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="No 15000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgv-RZ-XsK">
+                        <rect key="frame" x="397" y="0.0" width="75" height="224"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="dgv-RZ-XsK" firstAttribute="leading" secondItem="C6H-Av-ohN" secondAttribute="trailing" constant="8" id="9HP-fk-fgb"/>
-                    <constraint firstAttribute="bottom" secondItem="C6H-Av-ohN" secondAttribute="bottom" id="CQ5-UE-6mb"/>
+                    <constraint firstItem="dgv-RZ-XsK" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="C6H-Av-ohN" secondAttribute="trailing" constant="8" id="9HP-fk-fgb"/>
+                    <constraint firstItem="C6H-Av-ohN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="KPN-fF-Slr"/>
                     <constraint firstItem="dgv-RZ-XsK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="O8w-0H-6VY"/>
-                    <constraint firstItem="C6H-Av-ohN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="RAx-K5-E3e"/>
+                    <constraint firstItem="C6H-Av-ohN" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="RNK-f9-GV5"/>
                     <constraint firstAttribute="bottom" secondItem="dgv-RZ-XsK" secondAttribute="bottom" id="TCm-I0-J9O"/>
-                    <constraint firstAttribute="trailing" secondItem="dgv-RZ-XsK" secondAttribute="trailing" id="h1p-4X-oRA"/>
-                    <constraint firstItem="C6H-Av-ohN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="kG2-Fg-ssL"/>
-                    <constraint firstAttribute="trailing" secondItem="C6H-Av-ohN" secondAttribute="trailing" constant="43" id="zcJ-FM-NYJ"/>
+                    <constraint firstAttribute="trailing" secondItem="dgv-RZ-XsK" secondAttribute="trailing" constant="5" id="h1p-4X-oRA"/>
+                    <constraint firstItem="C6H-Av-ohN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="kG2-Fg-ssL"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -45,7 +45,7 @@
                 <outlet property="NoLabel" destination="dgv-RZ-XsK" id="Jeu-X3-bG7"/>
                 <outlet property="ScriptLabel" destination="C6H-Av-ohN" id="N4W-Mx-LO7"/>
             </connections>
-            <point key="canvasLocation" x="174.63768115942031" y="106.47321428571428"/>
+            <point key="canvasLocation" x="242.75362318840581" y="160.04464285714286"/>
         </tableViewCell>
     </objects>
 </document>
